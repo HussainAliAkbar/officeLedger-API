@@ -1,0 +1,10 @@
+
+# Config
+lib/config/env/*.json
+core/config/env/*.json
+migrations/database.json
+
+node_modules
+.idea/
+npm-debug.log
+core/logs

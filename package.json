@@ -1,0 +1,51 @@
+{
+  "name": "officeLedger-api",
+  "version": "1.0.0",
+  "description": "API for Office Ledger",
+  "main": "core/index.js",
+  "scripts": {
+    "start": "nodemon --inspect=3058 core/app.js --ignore ./core/logs",
+    "lint": "./node_modules/.bin/eslint core/ lib/",
+    "lint-fix": "./node_modules/.bin/eslint core/ lib/ --fix",
+    "migrations": "./node_modules/.bin/db-migrate up --config migrations/database.json",
+    "migrations-create": "./node_modules/.bin/db-migrate create $NAME --config migrations/database.json",
+    "docs": "apidoc -i core/ -o core/apidoc/"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "author": "Hussain Ali Akbar",
+  "license": "ISC",
+  "dependencies": {
+    "@10pearls/revalidator": "^0.3.1",
+    "body-parser": "^1.15.2",
+    "bunyan": "^1.8.5",
+    "bunyan-loggly": "^1.1.0",
+    "chance": "^1.0.4",
+    "compression": "^1.6.2",
+    "convict": "^2.0.0",
+    "db-migrate": "^0.10.0-beta.20",
+    "db-migrate-mysql": "^1.1.10",
+    "express": "^4.14.0",
+    "lodash": "^4.17.4",
+    "method-override": "^2.3.7",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.22.1",
+    "mysql": "^2.12.0",
+    "nodemailer": "^2.7.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "restify-errors": "^4.3.0",
+    "storehouse": "git+https://github.com/HussainAliAkbar/storehouse.git"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "nodemon": "^1.11.0"
+  },
+  "apidoc": {
+    "title": "officeLedger API",
+    "description": "API for officeLedger",
+    "version": "1.0.0",
+    "sampleUrl": false
+  }
+}
