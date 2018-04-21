@@ -32,3 +32,4 @@ require('./bootstrap/globalAsync')().then(() => {
 process.on('unhandledRejection', (err) => {
   logger.error(err);
 });
+
