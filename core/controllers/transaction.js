@@ -54,7 +54,13 @@ function getTransactionById(req, res, next) {
 
 function settleTransaction(req, res, next) {
   let payload = {
-    name: req.body.name
+    id: +req.params.id,
+    isPaid: +req.body.isPaid,
+    businessClientId: +req.body.businessClientId,
+    amount: +req.body.amount,
+    paymentDate: req.body.paymentDate,
+    paymentMethod: req.body.paymentMethod,
+    additionalDetails: req.body.additionalDetails
   };
   return services.transaction.settleTransaction(payload)
     .then(res.json)
