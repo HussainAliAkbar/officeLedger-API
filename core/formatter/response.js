@@ -3,6 +3,7 @@
 const DEFAULT_HTTP_SUCCESS_CODE = '200';
 // const logger = require('../bootstrap/bunyan');
 let statusCode = DEFAULT_HTTP_SUCCESS_CODE;
+const constants = require('../../lib/constants');
 
 module.exports = {
   formatResponse
@@ -26,8 +27,8 @@ function formatResponse(req, res, next) {
       };
     }
     if (!data.meta.skip || !data.meta.pageSize) {
-      data.meta.skip = +req.query.skip || 0;
-      data.meta.pageSize = +req.query.pageSize || 0;
+      data.meta.skip = +req.query.skip || constants.common.pagination.skip;
+      data.meta.pageSize = +req.query.pageSize || constants.common.pagination.pageSize;
     }
     // processRequestResponseLogging(req, data);
     return res.json(data);
