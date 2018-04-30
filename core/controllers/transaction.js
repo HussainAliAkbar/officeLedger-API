@@ -69,7 +69,7 @@ function settleTransaction(req, res, next) {
 
 function deleteTransaction(req, res, next) {
   let payload = {
-    name: req.body.name
+    transactionId: +req.params.id
   };
   return services.transaction.deleteTransaction(payload)
     .then(res.json)
